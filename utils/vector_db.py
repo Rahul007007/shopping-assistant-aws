@@ -96,13 +96,8 @@ class VectorDB:
 
     def get_product_recommendations(self, query_text: str, top_k: int = 3, reformat_results=True, run_reranking=True) -> Dict[str, Any]:
         """
-        Query the vector database for various products that similar to the query text
-        Args:
-            query_text: Text to search for
-            top_k: Number of results to return
-            reformat_results: Whether to reformat the results
-        Returns:
-            Dictionary containing search results
+        Query the vector database for various products that are similar to the query text
+        
         """
         try:
             query_embedding = self.pc.inference.embed(

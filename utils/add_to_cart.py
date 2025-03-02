@@ -8,4 +8,4 @@ def add_to_cart(product_id: int, quantity: int) -> str:
     return f"Order with product_id: {product_id} of quantity: {quantity} has been added to the cart ✅"
 
 if __name__ == "__main__":
-    print(buy_product(886368088, 2))
+    print(add_to_cart(886368088, 2))
