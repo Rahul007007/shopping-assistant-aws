@@ -1,0 +1,9 @@
+pinecone[grpc]
+requests
+python-dotenv
+uuid
+openai
+boto3
+pydantic
+geopy
+traceback2

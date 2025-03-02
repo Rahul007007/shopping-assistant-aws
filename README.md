@@ -1,7 +1,12 @@
 # Expedite Commerce Assignment - AWS
 
 ## Overview
-This project is an AI-powered e-commerce assistant deployed on AWS Lambda that helps customers with product recommendations, shopping cart management, shipment calculation, and order processing. The system uses a ReAct (Reasoning and Action) agent powered by OpenAI's models to interpret user queries and perform appropriate actions through a set of tools.
+This project implements an AI-powered e-commerce assistant deployed on AWS Lambda that helps customers with product recommendations, shopping cart management, shipment calculation, and order processing. The system leverages a ReAct (Reasoning and Action) agent powered by OpenAI's models to interpret user queries and perform appropriate actions through a set of specialized tools.
+
+## Demo & Documentation
+- **App Demo**: [Watch Demo Video](https://www.loom.com/share/2a4ad8fd9d1944de907c646b2e811846?sid=2fca7f33-e04c-45ff-a3bf-dffbd56da559)
+- **Architecture Diagram**: [View on Miro](https://miro.com/app/board/uXjVIXKzBFg=/?share_link_id=836653816402)
+- **Code & Architecture Explanation**: [Watch Explanation Video](https://www.loom.com/share/f3eb50cfdfab4491aa4656df55d2c23d?sid=978a7215-9c93-4365-b8c2-e1257006486f)
 
 ## Architecture
 
@@ -19,11 +24,24 @@ This project is an AI-powered e-commerce assistant deployed on AWS Lambda that h
 4. The response is returned to the user and session state is maintained
 
 ## Features
-- **Product Recommendations**: Search and suggest products based on natural language queries
-- **Shopping Cart Management**: Add products to cart with specified quantities
-- **Shipment Details**: Calculate shipping distances and costs using geolocation
-- **Order Processing**: Calculate total costs and complete purchases
-- **Conversational History**: Maintain context across interactions using session management
+
+### Product Recommendations
+- Search and suggest products based on natural language queries
+- Semantic understanding of user intent
+- Presents options with relevant details like pricing and discounts
+
+### Shopping Cart Management
+- Add products to cart with specified quantities
+
+### Order Processing
+- Calculate shipping distances and costs using geolocation
+- Calculate total costs including products, quantities, and shipping
+- Complete purchases with order confirmation
+
+### Session Management
+- Maintain conversational context across interactions
+- Persistent storage of session state in DynamoDB
+- Stateful interactions for a seamless user experience
 
 ## Project Structure
 ```
@@ -60,72 +78,6 @@ OPENAI_API_KEY=your_openai_api_key
 PINECONE_API_KEY=your_pinecone_api_key
 ```
 
-### Local Development
-1. Clone the repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - macOS/Linux: `source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
-5. Run tests or local development server
-
 ### AWS Deployment
 1. Create a Lambda layer with required dependencies
 2. Create a DynamoDB table named `expedite-commerce-assignment` with primary key `session_id`
-3. Deploy the code to Lambda:
-   ```
-   zip -r function.zip . -x "venv/*" -x "*.git*" -x "__pycache__/*" -x "*.zip"
-   aws lambda update-function-code --function-name expedite-commerce --zip-file fileb://function.zip
-   ```
-4. Configure Lambda environment variables
-
-## Usage Examples
-
-### Product Recommendations
-```json
-{
-  "user_query": "I'm looking for running shoes",
-  "session_id": "optional-existing-session-id"
-}
-```
-
-### Add to Cart
-```json
-{
-  "user_query": "Add Nike Air Max to my cart",
-  "session_id": "existing-session-id"
-}
-```
-
-### Complete Purchase
-```json
-{
-  "user_query": "Complete my purchase",
-  "session_id": "existing-session-id"
-}
-```
-
-## API Reference
-
-### Request Format
-```json
-{
-  "user_query": "string",
-  "session_id": "string (optional)"
-}
-```
-
-### Response Format
-```json
-{
-  "user_query": "string",
-  "response": "string or object",
-  "tools_used": "array of tool calls",
-  "session_id": "string"
-}
-```
-
-## License
-[Specify License]
-
-## App Demo: https://www.loom.com/share/2a4ad8fd9d1944de907c646b2e811846?sid=2fca7f33-e04c-45ff-a3bf-dffbd56da559
