@@ -127,3 +127,5 @@ PINECONE_API_KEY=your_pinecone_api_key
 
 ## License
 [Specify License]
+
+## App Demo: https://www.loom.com/share/2a4ad8fd9d1944de907c646b2e811846?sid=2fca7f33-e04c-45ff-a3bf-dffbd56da559

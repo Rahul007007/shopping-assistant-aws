@@ -30,5 +30,5 @@ def calculate_total_price(cart_items:List, shipment_distance: float):
         discount = item.get('discount')
         total_price += checkout(product_id, quantity, product_price, discount)
         product_ids_str+=str(item['product_id'])+" "
-    total_price += shipment_distance * 0.1
+    total_price += shipment_distance * 0.01
     return f"Total price to be paid for the cart items consisting of Product IDs: {product_ids_str} after considering the delivery charges and the product prices with their discounts: {total_price}"

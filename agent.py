@@ -75,7 +75,7 @@ class Agent:
             return response
         except Exception as e:
             logger.log_trace(f"Error calling LLM: {str(e)}", level="WARNING")
-            logger.log_trace(f"Using fallback model: {self.fallback_model}", level="WARNING")
+            logger.log_trace(f"Ussing fallback model: {self.fallback_model}", level="WARNING")
             try:
                 return self.__call_llm(messages, model=self.fallback_model)
             except Exception as e:
@@ -183,6 +183,7 @@ class Agent:
 
     def run(self, body) -> Dict[str, str]:
         """Run the agent with the given body"""
+        self.messages = []
         user_query = body.get("user_query")
         session_id = body.get("session_id")
         if not session_id:
