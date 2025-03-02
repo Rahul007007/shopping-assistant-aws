@@ -4,7 +4,6 @@ from utils.complete_purchase import complete_purchase
 agent = Agent()
 
 def lambda_handler(event, context):
-    # TODO implement
     # Parse the request body correctly
     try:
         body = json.loads(event['body']) if 'body' in event else event

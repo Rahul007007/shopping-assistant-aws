@@ -75,7 +75,7 @@ class Agent:
             return response
         except Exception as e:
             logger.log_trace(f"Error calling LLM: {str(e)}", level="WARNING")
-            logger.log_trace(f"Ussing fallback model: {self.fallback_model}", level="WARNING")
+            logger.log_trace(f"Using fallback model: {self.fallback_model}", level="WARNING")
             try:
                 return self.__call_llm(messages, model=self.fallback_model)
             except Exception as e:
