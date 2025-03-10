@@ -12,7 +12,7 @@ logger = CustomLogger('vector_db')
 class VectorDBConfig:
     api_key: str
     batch_size: int = 96
-    index_name: str = "expedite-assignment"
+    index_name: str = "shopping-assistant"
     dimension: int = 1024
     metric: str = "cosine"
     cloud: str = "aws"
