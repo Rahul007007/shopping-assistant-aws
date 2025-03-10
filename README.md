@@ -1,4 +1,4 @@
-# Expedite Commerce Assignment - AWS
+# Sopping Assistant - AWS
 
 ## Overview
 This project implements an AI-powered e-commerce assistant deployed on AWS Lambda that helps customers with product recommendations, shopping cart management, shipment calculation, and order processing. The system leverages a ReAct (Reasoning and Action) agent powered by OpenAI's models to interpret user queries and perform appropriate actions through a set of specialized tools.
