@@ -47,7 +47,7 @@ def handle_purchase():
 
 def query_agent(*args, **kwargs):
     """Send user query to Lambda function and get response"""
-    url = "https://bbjrxvwdo6odnztdxezroknyqa0kakcz.lambda-url.ap-south-1.on.aws/"
+    url = "https://uyg4mvttiva6asn2eyuzm5a3ay0pmfdf.lambda-url.ap-south-1.on.aws/"
     
     payload = kwargs.copy()
     payload["session_id"] = st.session_state.session_id

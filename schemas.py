@@ -29,3 +29,7 @@ class Complete_Purchase(BaseModel):
     total_price: float = Field(..., description="Total cost of the order")
     cart_items: List[CartItem] = Field(..., description="List of items in the cart")
 
+class Get_Order_Details(BaseModel):
+    order_id: int = Field(...,  title="order_id", description="Unique identifier for the order")
+    model_config = ConfigDict(extra="forbid")
+

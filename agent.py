@@ -11,7 +11,8 @@ from utils.add_to_cart import add_to_cart
 from utils.shipment_details import shipment_details
 from utils.complete_purchase import complete_purchase
 from utils.calculate_total_price import calculate_total_price
-from schemas import Get_Product_Recommendations, Add_To_Cart, Shipment_Details, Calculate_Total_Price, Complete_Purchase
+from utils.get_order_details import get_order_details
+from schemas import Get_Product_Recommendations, Add_To_Cart, Shipment_Details, Calculate_Total_Price, Complete_Purchase, Get_Order_Details
 from utils.logger import CustomLogger
 from utils.tools import ToolRegistry
 
@@ -35,6 +36,7 @@ def initialize_tools(*args, **kwargs) -> ToolRegistry:
     tools.register(shipment_details, Shipment_Details)
     tools.register(calculate_total_price, Calculate_Total_Price)
     tools.register(complete_purchase, Complete_Purchase)
+    tools.register(get_order_details, Get_Order_Details)
 
     return tools
 
@@ -114,7 +116,7 @@ class Agent:
     def __get_session_messages(self, session_id: str):
         """Get all messages from DDB"""
         response = self.dynamodb.get_item(
-                        TableName='expedite-commerce-assignment',
+                        TableName='sessions',
                         Key={'session_id': {'S': session_id}}
                         )
     
@@ -169,7 +171,7 @@ class Agent:
             
             # Insert/Update the item in DynamoDB
             self.dynamodb.put_item(
-                TableName='expedite-commerce-assignment',
+                TableName='sessions',
                 Item={
                     'session_id': {'S': session_id},
                     'messages': {'L': serialized_messages}
