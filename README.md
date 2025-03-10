@@ -1,4 +1,4 @@
-# Sopping Assistant - AWS
+# Shopping Assistant - AWS
 
 ## Overview
 This project implements an AI-powered e-commerce assistant deployed on AWS Lambda that helps customers with product recommendations, shopping cart management, shipment calculation, and order processing. The system leverages a ReAct (Reasoning and Action) agent powered by OpenAI's models to interpret user queries and perform appropriate actions through a set of specialized tools.
@@ -45,7 +45,7 @@ This project implements an AI-powered e-commerce assistant deployed on AWS Lambd
 
 ## Project Structure
 ```
-expedite-commerce-assignment-aws/
+shopping-assistant-aws/
 ├── agent.py                 # Main ReAct agent implementation
 ├── lambda_function.py       # AWS Lambda handler
 ├── schemas.py               # Pydantic models for data validation
@@ -57,6 +57,7 @@ expedite-commerce-assignment-aws/
 │   ├── add_to_cart.py       # Cart management functions
 │   ├── calculate_total_price.py # Price calculation logic
 │   ├── complete_purchase.py # Order finalization
+│   ├── get_order_details.py # Order information retrieval
 │   ├── shipment_details.py  # Shipment processing
 │   ├── logger.py            # Logging utilities
 │   ├── tools.py             # Tool registry system
@@ -80,4 +81,5 @@ PINECONE_API_KEY=your_pinecone_api_key
 
 ### AWS Deployment
 1. Create a Lambda layer with required dependencies
-2. Create a DynamoDB table named `expedite-commerce-assignment` with primary key `session_id`
+2. Create a DynamoDB table named `sessions` with primary key `session_id`
+3. Create a DynamoDB table named `orders` with primary key `order_id`
