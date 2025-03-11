@@ -4,9 +4,7 @@
 This project implements an AI-powered e-commerce assistant deployed on AWS Lambda that helps customers with product recommendations, shopping cart management, shipment calculation, and order processing. The system leverages a ReAct (Reasoning and Action) agent powered by OpenAI's models to interpret user queries and perform appropriate actions through a set of specialized tools.
 
 ## Demo & Documentation
-- **App Demo**: [Watch Demo Video](https://www.loom.com/share/2a4ad8fd9d1944de907c646b2e811846?sid=2fca7f33-e04c-45ff-a3bf-dffbd56da559)
 - **Architecture Diagram**: [View on Miro](https://miro.com/app/board/uXjVIXKzBFg=/?share_link_id=836653816402)
-- **Code & Architecture Explanation**: [Watch Explanation Video](https://www.loom.com/share/f3eb50cfdfab4491aa4656df55d2c23d?sid=978a7215-9c93-4365-b8c2-e1257006486f)
 
 ## Architecture
 
